@@ -148,7 +148,7 @@ async def unzip(bot, update):
                 document=extract_dir_path
                 #caption=script.CAPTION_TEXT.format(file_name),
                 # reply_markup=reply_markup,
-                reply_to_message_id=update.reply_to_message.message_id,
+                reply_to_message_id=update.message_id,
                 progress=progress_for_pyrogram,
                 progress_args=(
                     Translation.UPLOAD_START,
