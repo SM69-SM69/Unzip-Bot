@@ -148,7 +148,6 @@ async def unzip(bot, update):
                         message_id=update.message_id
                     )
 
-            c_time = time.time()
             await bot.send_document(
                 chat_id=update.chat.id,
                 document=extract_dir_path
