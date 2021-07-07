@@ -147,6 +147,7 @@ async def unzip(bot, update):
                         text=Translation.UPLOAD_START,
                         message_id=update.message_id
                     )
+
             c_time = time.time()
             await bot.send_document(
                 chat_id=update.chat.id,
