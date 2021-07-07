@@ -86,7 +86,7 @@ async def unzip(bot, update):
                     "7z",
                     "e",
                     "-o" + extract_dir_path,
-                    saved_file_path
+                    #saved_file_path
                 ]
                 # https://stackoverflow.com/a/39629367/4723940
                 logger.info(command_to_exec)
