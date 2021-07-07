@@ -141,21 +141,6 @@ async def unzip(bot, update):
                     message_id=a.message_id,
                     reply_markup=reply_markup,
                 )
-            
-            c_time = time.time()
-            await bot.send_document(
-                chat_id=update.chat.id,
-                document=extract_dir_path
-                #caption=script.CAPTION_TEXT.format(file_name),
-                # reply_markup=reply_markup,
-                #message_id=update.message_id,
-                progress=progress_for_pyrogram,
-                progress_args=(
-                    Translation.UPLOAD_START,
-                    #a, 
-                    c_time
-                )
-            )
     else:
         await bot.send_message(
             chat_id=update.chat.id,
