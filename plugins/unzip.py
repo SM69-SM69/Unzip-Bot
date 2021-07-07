@@ -85,8 +85,8 @@ async def unzip(bot, update):
                 command_to_exec = [
                     "unzip",
                     "e",
-                    "-o" + extract_dir_path
-                    #saved_file_path
+                    "-o" + extract_dir_path,
+                    saved_file_path
                 ]
                 # https://stackoverflow.com/a/39629367/4723940
                 logger.info(command_to_exec)
