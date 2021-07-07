@@ -145,7 +145,7 @@ async def unzip(bot, update):
             c_time = time.time()
             await bot.send_document(
                 chat_id=update.chat.id,
-                document=zip_file_contents,
+                document=extract_dir_path
                 #caption=script.CAPTION_TEXT.format(file_name),
                 # reply_markup=reply_markup,
                 reply_to_message_id=update.reply_to_message.message_id,
