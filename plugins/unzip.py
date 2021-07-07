@@ -21,13 +21,14 @@ from translation import Translation
 import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-from helper_funcs.chat_base import TRChatBase
+from pyrogram import Client, filters
+#from helper_funcs.chat_base import TRChatBase
 from helper_funcs.display_progress import progress_for_pyrogram, humanbytes
 
 
-@pyrogram.Client.on_message(pyrogram.Filters.command(["unzip"]))
+@pyrogram.Client.on_message(pyrogram.filters.command(["unzip"]))
 async def unzip(bot, update):
-    TRChatBase(update.from_user.id, update.text, "unzip")
+    #TRChatBase(update.from_user.id, update.text, "unzip")
     if str(update.from_user.id) in Config.AUTH_USERS:
         await bot.send_message(
             chat_id=update.chat.id,
