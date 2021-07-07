@@ -99,13 +99,13 @@ async def unzip(bot, update):
                     shutil.rmtree(extract_dir_path)
                 except:
                     pass
-                #await bot.edit_message_text(
-                    #chat_id=update.chat.id,
-                    #text=Translation.EXTRACT_ZIP_ERRS_OCCURED,
-                    #disable_web_page_preview=True,
-                    #parse_mode="html",
-                    #message_id=a.message_id
-                #)
+                await bot.edit_message_text(
+                    chat_id=update.chat.id,
+                    text=Translation.EXTRACT_ZIP_ERRS_OCCURED,
+                    disable_web_page_preview=True,
+                    parse_mode="html",
+                    message_id=a.message_id
+                )
             else:
                 os.remove(saved_file_path)
                 inline_keyboard = []
@@ -138,8 +138,7 @@ async def unzip(bot, update):
                 await bot.edit_message_text(
                     chat_id=update.chat.id,
                     text=Translation.EXTRACT_ZIP_STEP_TWO,
-                    #message_id=a.message_id,
-                    reply_to_message_id=update.message_id
+                    message_id=a.message_id,
                     reply_markup=reply_markup,
                 )
     else:
