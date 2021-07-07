@@ -44,9 +44,9 @@ async def unzip(bot, update):
     if os.path.exists(saved_file_path):
         os.remove(saved_file_path)
     reply_message = update.reply_to_message
-    if ((reply_message is not None) and
-        (reply_message.document is not None) and
-        (reply_message.document.file_name.endswith(Translation.UNZIP_SUPPORTED_EXTENSIONS))):
+    #if ((reply_message is not None) and
+        #(reply_message.document is not None) and
+        #(reply_message.document.file_name.endswith(Translation.UNZIP_SUPPORTED_EXTENSIONS))):
         a = await bot.send_message(
             chat_id=update.chat.id,
             text=Translation.DOWNLOAD_START,
@@ -83,7 +83,7 @@ async def unzip(bot, update):
             )
             try:
                 command_to_exec = [
-                    "unzip" #"7z",
+                    "7-unzip" #"7z",
                     "e",
                     "-o" + extract_dir_path,
                     saved_file_path
