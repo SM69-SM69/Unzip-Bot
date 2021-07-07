@@ -83,7 +83,7 @@ async def unzip(bot, update):
             )
             try:
                 command_to_exec = [
-                    "7z",
+                    "unzip" #"7z",
                     "e",
                     "-o" + extract_dir_path,
                     saved_file_path
