@@ -83,10 +83,10 @@ async def unzip(bot, update):
             )
             try:
                 command_to_exec = [
-                    "7-unzip",
+                    "unzip",
                     "e",
-                    "-o" + extract_dir_path,
-                    saved_file_path
+                    "-o" + extract_dir_path
+                    #saved_file_path
                 ]
                 # https://stackoverflow.com/a/39629367/4723940
                 logger.info(command_to_exec)
@@ -99,13 +99,13 @@ async def unzip(bot, update):
                     shutil.rmtree(extract_dir_path)
                 except:
                     pass
-                await bot.edit_message_text(
-                    chat_id=update.chat.id,
-                    text=Translation.EXTRACT_ZIP_ERRS_OCCURED,
-                    disable_web_page_preview=True,
-                    parse_mode="html",
-                    message_id=a.message_id
-                )
+                #await bot.edit_message_text(
+                    #chat_id=update.chat.id,
+                    #text=Translation.EXTRACT_ZIP_ERRS_OCCURED,
+                    #disable_web_page_preview=True,
+                    #parse_mode="html",
+                    #message_id=a.message_id
+                #)
             else:
                 os.remove(saved_file_path)
                 inline_keyboard = []
