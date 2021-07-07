@@ -28,7 +28,12 @@ from translation import Translation
 import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-from helper_funcs.chat_base import TRChatBase
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
+from pyrogram.errors import PeerIdInvalid, ChannelInvalid, FloodWait
+from pyrogram.types import InputMediaPhoto
+
+#from helper_funcs.chat_base import TRChatBase
 from helper_funcs.display_progress import progress_for_pyrogram, humanbytes
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
@@ -337,7 +342,7 @@ async def youtube_dl_call_back(bot, update):
                     if os.path.exists(image):
                         if i == 0:
                             media_album_p.append(
-                                pyrogram.InputMediaPhoto(
+                                InputMediaPhoto(
                                     media=image,
                                     caption=caption,
                                     parse_mode="html"
@@ -345,7 +350,7 @@ async def youtube_dl_call_back(bot, update):
                             )
                         else:
                             media_album_p.append(
-                                pyrogram.InputMediaPhoto(
+                                InputMediaPhoto(
                                     media=image
                                 )
                             )
