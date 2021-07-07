@@ -40,7 +40,7 @@ async def unzip(bot, update):
         )
         return
     saved_file_path = Config.DOWNLOAD_LOCATION + \
-        "/" + str(update.from_user.id) + ".unzip"
+        "/" + str(update.from_user.id) + ".unzip.zip"
     if os.path.exists(saved_file_path):
         os.remove(saved_file_path)
     reply_message = update.reply_to_message
