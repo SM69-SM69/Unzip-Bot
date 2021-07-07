@@ -85,8 +85,8 @@ async def unzip(bot, update):
                 command_to_exec = [
                     "7z",
                     "e",
-                    "-o" + saved_file_path #extract_dir_path,
-                    #saved_file_path
+                    "-o" + extract_dir_path,
+                    saved_file_path
                 ]
                 # https://stackoverflow.com/a/39629367/4723940
                 logger.info(command_to_exec)
@@ -138,7 +138,8 @@ async def unzip(bot, update):
                 await bot.edit_message_text(
                     chat_id=update.chat.id,
                     text=Translation.EXTRACT_ZIP_STEP_TWO,
-                    message_id=a.message_id,
+                    #message_id=a.message_id,
+                    reply_to_message_id=update.message_id
                     reply_markup=reply_markup,
                 )
     else:
