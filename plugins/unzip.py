@@ -141,6 +141,14 @@ async def unzip(bot, update):
                     message_id=a.message_id,
                     reply_markup=reply_markup,
                 )
+            zip_file_contents = os.listdir(extract_dir_path)
+            try:
+                await bot.send_message(
+                    chat_id=update.chat.id,
+                    text=Translation.UPLOAD_START,
+                    reply_to_message_id=update.message_id
+                )
+
             c_time = time.time()
             await bot.send_document(
                 chat_id=update.chat.id,
