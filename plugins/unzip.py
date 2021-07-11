@@ -99,13 +99,13 @@ async def unzip(bot, update):
                     shutil.rmtree(extract_dir_path)
                 except:
                     pass
-                #await bot.edit_message_text(
-                    #chat_id=update.chat.id,
-                    #text=Translation.EXTRACT_ZIP_ERRS_OCCURED,
-                    #disable_web_page_preview=True,
-                    #parse_mode="html",
-                    #message_id=a.message_id
-                #)
+                await bot.edit_message_text(
+                    chat_id=update.chat.id,
+                    text=Translation.EXTRACT_ZIP_ERRS_OCCURED,
+                    disable_web_page_preview=True,
+                    parse_mode="html",
+                    message_id=a.message_id
+                )
             else:
                 os.remove(saved_file_path)
                 inline_keyboard = []
@@ -141,6 +141,27 @@ async def unzip(bot, update):
                     message_id=a.message_id,
                     reply_markup=reply_markup,
                 )
+            try:
+                sendmsg = await bot.send_message(
+                    chat_id=message.chat.id,
+                    text=Translation.UPLOAD_START,
+                    reply_to_message_id=update.message_id
+                )
+            c_time = time.time()
+            await bot.send_document(
+                chat_id=update.chat.id,
+                document=zip_file_contents,
+                #thumb=thumb_image_path,
+                #caption=script.CAPTION_TEXT.format(newfile_name),
+                # reply_markup=reply_markup,
+                reply_to_message_id=update.reply_to_message.message_id,
+                progress=progress_for_pyrogram,
+                progress_args=(
+                    Translation.UPLOAD_START,
+                    sendmsg, 
+                    c_time
+                )
+            )
     else:
         await bot.send_message(
             chat_id=update.chat.id,
