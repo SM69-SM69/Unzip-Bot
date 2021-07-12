@@ -143,11 +143,12 @@ async def unzip(bot, update):
                 )
             
             try:
-                await bot.edit_message(
+                await bot.edit_message_text(
                     chat_id=message.chat.id,
                     text=Translation.UPLOAD_START,
-                    reply_to_message_id=update.message_id
+                    reply_to_message_id=a.message_id
                 )
+
             c_time = time.time()
             await bot.send_document(
                 chat_id=update.chat.id,
@@ -155,7 +156,7 @@ async def unzip(bot, update):
                 #thumb=thumb_image_path,
                 #caption=script.CAPTION_TEXT.format(newfile_name),
                 # reply_markup=reply_markup,
-                reply_to_message_id=update.reply_to_message.message_id,
+                reply_to_message_id=update.message_id,
                 progress=progress_for_pyrogram,
                 progress_args=(
                     Translation.UPLOAD_START,
