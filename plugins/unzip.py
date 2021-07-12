@@ -142,12 +142,12 @@ async def unzip(bot, update):
                     reply_markup=reply_markup,
                 )
             
-            try:
-                await bot.edit_message_text(
-                    chat_id=message.chat.id,
-                    text=Translation.UPLOAD_START,
-                    reply_to_message_id=a.message_id
-                )
+            #try:
+                #await bot.edit_message_text(
+                    #chat_id=message.chat.id,
+                    #text=Translation.UPLOAD_START,
+                    #reply_to_message_id=a.message_id
+                #)
 
             c_time = time.time()
             await bot.send_document(
