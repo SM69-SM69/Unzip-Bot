@@ -135,7 +135,7 @@ async def unzip(bot, update):
                     )
                 ])
                 reply_markup = InlineKeyboardMarkup(inline_keyboard)
-                await bot.edit_message_text(
+                files = await bot.edit_message_text(
                     chat_id=update.chat.id,
                     text=Translation.EXTRACT_ZIP_STEP_TWO,
                     message_id=a.message_id,
